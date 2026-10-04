@@ -32,3 +32,44 @@ li {
 body {
     background-color: var(--color-bg);
 }
+
+header {
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        padding: 15px 20px;
+        margin: 0 auto;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+
+        img {
+            width: auto;
+            height: 40px;
+        }
+    }
+
+    a {
+        color: var(--color-text);
+    }
+
+    nav ul {
+        display: flex;
+        gap: 20px;
+
+        a {
+            padding: 10px 20px;
+            border-radius: 10px;
+            box-shadow:  var(--shadow-sm);
+
+            &:hover {
+                background-color: var(--color-accent);
+                color: var(--color-bg);
+            }
+        }
+    }
+}
