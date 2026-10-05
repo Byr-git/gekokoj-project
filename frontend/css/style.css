@@ -38,7 +38,7 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: 1400px;
+        width: min(100% - 2rem, 1400px);
         padding: 15px 0px;
         margin: 0 auto;
     }
@@ -74,10 +74,14 @@ header {
     }
 }
 
+
+
 .hero {
     display: flex;
     align-items: center;
-    max-width: 1400px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: min(100% - 2rem, 1400px);
     margin: 0 auto;
     padding: 20px;
     gap: 20px;
@@ -86,7 +90,6 @@ header {
     border-radius: 10px;
 
     img {
-        flex: 1;
         max-width: 50%;
         height: auto;
         box-shadow: var(--shadow-md);
