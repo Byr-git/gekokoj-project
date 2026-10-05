@@ -38,8 +38,8 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: 1200px;
-        padding: 15px 20px;
+        max-width: 1400px;
+        padding: 15px 0px;
         margin: 0 auto;
     }
 
@@ -67,9 +67,79 @@ header {
             box-shadow:  var(--shadow-sm);
 
             &:hover {
-                background-color: var(--color-accent);
+                background-color: var(--color-highlight);
                 color: var(--color-bg);
             }
         }
     }
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;
+    background-color: var(--color-bg-secondary);
+    box-shadow: var(--shadow-md);
+    border-radius: 10px;
+
+    img {
+        flex: 1;
+        max-width: 50%;
+        height: auto;
+        box-shadow: var(--shadow-md);
+        border-radius: 10px;
+    }
+
+    .hero-content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+
+        h1 {
+            font-size: 48px;
+            color: var(--color-text);
+            text-align: center;
+        }
+
+        .hero-descripcion {
+            text-align: center;
+        }
+
+        .hero-productos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+
+            span {
+                padding: 6px 15px;
+                border-radius: 10px;
+                background-color: var(--color-bg);
+                color: var(--color-text-secondary);
+                box-shadow: var(--shadow-md);
+            }
+        }
+
+        a {
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: var(--color-accent);
+            box-shadow:  var(--shadow-sm);
+            color: var(--color-bg);
+
+            &:hover {
+                background-color: var(--color-highlight);
+                color: var(--color-bg);
+            }
+        }
+    }
+
+
 }
