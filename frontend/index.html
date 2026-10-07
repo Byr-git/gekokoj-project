@@ -5,40 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gekokoj</title>
     <link rel="stylesheet" href="/frontend/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="header-content">
-            <a href="#inicio" class="logo">
-                <img src="/frontend/assets/images/logo.svg" alt="Gekokoj">
+            <a href="#inicio" class="brand">
+                <img class="logo" src="/frontend/assets/public/logo.svg" alt="Gekokoj">
+                <div class="brand-info">
+                    <span class="brand-name">Gekokoj</span>
+                    <span class="brand-slogan">Cuidando nace la calidad</span>
+                </div>
             </a>
             <nav>
                 <ul>
-                    <li><b><a href="#inicio">Inicio</a></b></li>
-                    <li><b><a href="#productos">Productos</a></b></li>
-                    <li><b><a href="#contacto">Contacto</a></b></li>
-                    <li><b><a href="#nosotros">Nosotros</a></b></li>                                      
+                    <li>
+                        <a href="#inicio">
+                            <img src="/frontend/assets/icons/house.svg" alt="">
+                            <span>Inicio</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#productos">
+                            <img src="/frontend/assets/icons/store.svg" alt="">
+                            <span>Productos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#nosotros">
+                            <img src="/frontend/assets/icons/heart.svg" alt="">
+                            <span>Nosotros</span>
+                        </a>
+                    </li>   
+                    <li>
+                        <a href="#contacto">
+                            <img src="/frontend/assets/icons/message-circle.svg" alt="">
+                            <span>Contacto</span>
+                        </a>
+                    </li>                     
                 </ul>
             </nav>            
         </div>
     </header>
     <main>
         <section class="hero">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.colprensa.com%2Fwp-content%2Fuploads%2F2026%2F02%2FCSAN-RAFAEL-scaled.jpg&f=1&nofb=1&ipt=e0aad3567413b7e9d0f745982aa5405ccab3c2a2e4e0dee946148c6a458697c9&ipo=images" alt="">
             <div class="hero-content">
-                <h1>Productos avícolas de calidad</h1>
-                <p class="hero-descripcion">
-                    En GEKOKOJ encontrarás aves y productos avícolas seleccionados para acompañar tus proyectos de crianza, producción y consumo.
+                <h1>Criamos aves de corral con todo el <span>respeto</span> que se merecen</h1>
+                <p class="hero-description">
+                    Nos dedicamos a la crianza y comercialización de aves y productos avícolas, procurando ofrecer animales saludables y productos seleccionados con responsabilidad.
                 </p>
-                <div class="hero-productos">
-                    <span>Gallos</span>
-                    <span>Gallinas</span>
-                    <span>Pollitos</span>
-                    <span>Huevos</span>
-                    <span>Codornices</span>
+                <div class="hero-actions">
+                    <a class="hero-link-primary" href="#productos">Ver productos</a>
+                    <a class="hero-link-secondary" href="#nosotros">Conoce Gekokoj</a>
                 </div>
-                <a href="#productos">Ver nuestros productos</a>
             </div>
+            <img src="/frontend/assets/images/img-hero1.jpg" alt="">
         </section>
     </main>
 </body>

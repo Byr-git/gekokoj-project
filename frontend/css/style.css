@@ -21,6 +21,11 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
 a {
     text-decoration: none;
 }
@@ -31,30 +36,53 @@ li {
 
 body {
     background-color: var(--color-bg);
+    font-family: 'Nunito', sans-serif;
 }
 
 header {
-    .header-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: min(100% - 2rem, 1400px);
-        padding: 15px 0px;
-        margin: 0 auto;
-    }
+    position: sticky;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+    background-color: var(--color-bg-secondary);
+    box-shadow: var(--shadow-md);
+}
 
-    .logo {
-        display: flex;
-        align-items: center;
-
-        img {
-            width: auto;
-            height: 40px;
-        }
-    }
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: min(100% - 2rem, 1400px);
+    padding: 8px 0;
+    margin: 0 auto;
 
     a {
         color: var(--color-text);
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .logo {
+            height: 45px;
+            background-color: var(--color-bg);
+            border-radius: 100%;
+        }
+
+        .brand-info {
+            display: flex;
+            flex-direction: column;
+
+            .brand-name {
+                font-weight: 700;
+            }
+
+            .brand-slogan {
+                font-size: 0.8rem;
+            }
+        }
     }
 
     nav ul {
@@ -62,9 +90,15 @@ header {
         gap: 20px;
 
         a {
-            padding: 10px 20px;
-            border-radius: 10px;
+            img { height: 20px; }
+
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            padding: 8px 20px;
+            border-radius: 50px;
             box-shadow:  var(--shadow-sm);
+            background-color: var(--color-bg);
 
             &:hover {
                 background-color: var(--color-highlight);
@@ -74,7 +108,29 @@ header {
     }
 }
 
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 20px;
+    border-radius: 50px;
+    box-shadow: var(--shadow-md);
 
+    &:hover {
+        background-color: var(--color-highlight);
+        color: var(--color-bg);
+    }
+}
+
+.button-primary {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+}
+
+.button-secondary {
+    background-color: var(--color-bg);
+    color: var(--color-text-secondary);
+}
 
 .hero {
     display: flex;
@@ -82,67 +138,47 @@ header {
     justify-content: center;
     flex-wrap: wrap;
     width: min(100% - 2rem, 1400px);
-    margin: 0 auto;
-    padding: 20px;
+    margin: 20px auto;
+    padding: 10px;
     gap: 20px;
     background-color: var(--color-bg-secondary);
     box-shadow: var(--shadow-md);
-    border-radius: 10px;
-
-    img {
-        max-width: 50%;
-        height: auto;
-        box-shadow: var(--shadow-md);
-        border-radius: 10px;
-    }
+    border-radius: 50px;
 
     .hero-content {
         display: flex;
         flex: 1;
         flex-direction: column;
         gap: 30px;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
         padding: 20px;
 
         h1 {
-            font-size: 48px;
             color: var(--color-text);
-            text-align: center;
-        }
-
-        .hero-descripcion {
-            text-align: center;
-        }
-
-        .hero-productos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
+            font-size: clamp(2.5rem, 5vw, 3rem);
+            line-height: 1.05;
+            letter-spacing: -1px;
 
             span {
-                padding: 6px 15px;
-                border-radius: 10px;
-                background-color: var(--color-bg);
-                color: var(--color-text-secondary);
-                box-shadow: var(--shadow-md);
+                color: var(--color-accent);
             }
         }
 
-        a {
-            padding: 10px 20px;
-            border-radius: 10px;
-            background-color: var(--color-accent);
-            box-shadow:  var(--shadow-sm);
-            color: var(--color-bg);
-
-            &:hover {
-                background-color: var(--color-highlight);
-                color: var(--color-bg);
-            }
+        .hero-description {
+            line-height: 1.5;
         }
+
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+        }  
     }
 
-
+    img {
+        max-width: 55%;
+        height: auto;
+        box-shadow: var(--shadow-md);
+        border-radius: 40px;
+    }
 }
