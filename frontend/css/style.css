@@ -9,6 +9,7 @@
     --color-highlight: #D9A441;
 
     --color-text: #29251F;
+    --color-text-light: #F7F1E3;
     --color-text-secondary: #6B6256;
 
     --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.10);
@@ -37,6 +38,12 @@ li {
 body {
     background-color: var(--color-bg);
     font-family: 'Nunito', sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 }
 
 header {
@@ -76,7 +83,8 @@ header {
             flex-direction: column;
 
             .brand-name {
-                font-weight: 700;
+                color: var(--color-primary);
+                font-weight: 900;
             }
 
             .brand-slogan {
@@ -115,21 +123,26 @@ header {
     padding: 15px 20px;
     border-radius: 50px;
     box-shadow: var(--shadow-md);
+}
+
+.button-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+
+    &:hover {
+        background-color: var(--color-primary-dark);
+        color: var(--color-bg);
+    }
+}
+
+.button-secondary {
+    background-color: var(--color-bg);
+    color: var(--color-text);
 
     &:hover {
         background-color: var(--color-highlight);
         color: var(--color-bg);
     }
-}
-
-.button-primary {
-    background-color: var(--color-accent);
-    color: var(--color-bg);
-}
-
-.button-secondary {
-    background-color: var(--color-bg);
-    color: var(--color-text-secondary);
 }
 
 .hero {
@@ -167,6 +180,7 @@ header {
 
         .hero-description {
             line-height: 1.5;
+            color: var(--color-text-secondary);
         }
 
         .hero-actions {
@@ -180,5 +194,94 @@ header {
         height: auto;
         box-shadow: var(--shadow-md);
         border-radius: 40px;
+    }
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    width: min(100%, 400px);
+    border-radius: 50px;
+    justify-self: center;
+    padding: 10px;
+    gap: 10px;
+    background-color: var(--color-bg-secondary);
+    box-shadow: var(--shadow-md);
+
+    .card-img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 40px;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .card-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: start;
+        border-radius: 40px;
+        padding: 20px;
+        background-color: var(--color-bg);
+        box-shadow: var(--shadow-sm);
+
+        h3 {
+            display: inline-flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 900;
+            gap: 8px;
+            color: var(--color-primary);
+
+            img {
+                height: 1.5rem;
+            }
+        }
+
+        .product-info {
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--color-text-secondary);
+        }
+
+        p {
+            color: var(--color-text);
+        }
+    }
+}
+
+.productos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: min(100% - 2rem, 1400px);
+    margin: 0 auto;
+    gap: 50px;
+
+    .productos-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--color-primary);
+        }
+
+        p {
+            color: var(--color-text-secondary);
+            font-weight: 700;
+        }
+    }
+
+    .productos-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: clamp(20px, 3vw, 40px);
+        width: 100%;
     }
 }
