@@ -17,8 +17,14 @@
                     <span class="brand-slogan">Cuidando nace la calidad</span>
                 </div>
             </a>
-            <nav>
-                <ul>
+            <button class="open-nav" id="open-nav">
+                <img src="/frontend/assets/icons/menu.svg" alt="">
+            </button>
+            <nav class="nav" id="nav">
+                <ul class="nav-list">
+                    <button class="close-nav" id="close-nav">
+                        <img src="/frontend/assets/icons/menu.svg" alt="">
+                    </button>
                     <li>
                         <a href="#inicio">
                             <img src="/frontend/assets/icons/house.svg" alt="">
@@ -48,7 +54,7 @@
         </div>
     </header>
     <main>
-        <section class="hero">
+        <section id="inicio" class="hero">
             <div class="hero-content">
                 <h1>Criamos aves de corral con todo el <span>respeto</span> que se merecen</h1>
                 <p class="hero-description">
@@ -61,7 +67,7 @@
             </div>
             <img src="/frontend/assets/images/img-hero1.jpg" alt="">
         </section>
-        <section class="productos">
+        <section id="productos" class="productos">
             <div class="productos-title">
                 <h2>NUESTROS PRODUCTOS</h2>
                 <p>Conoce las aves y productos que tenemos disponibles para ti</p>
@@ -167,5 +173,6 @@
             </div>
         </section>
     </main>
+    <script src="/frontend/js/main.js"></script>
 </body>
 </html>
