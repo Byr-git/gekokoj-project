@@ -207,7 +207,6 @@ header {
     }
 }
 
-
 .product-card {
     display: flex;
     flex-direction: column;
@@ -299,6 +298,122 @@ header {
     }
 }
 
+.nosotros {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: clamp(30px, 5vw, 70px);
+
+    width: min(100% - 2rem, 1400px);
+    margin: 0 auto;
+    padding: clamp(20px, 4vw, 50px);
+
+    background-color: var(--color-bg-secondary);
+    border-radius: 50px;
+    box-shadow: var(--shadow-md);
+
+    .nosotros-image {
+        position: relative;
+        min-width: 0;
+
+        > img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            border-radius: 40px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .nosotros-badge {
+            position: absolute;
+            right: 25px;
+            bottom: 25px;
+
+            max-width: calc(100% - 20px);
+            padding: 18px 24px;
+
+            background-color: var(--color-bg);
+            border-radius: 25px;
+            box-shadow: var(--shadow-md);
+
+            span {
+                display: block;
+                color: var(--color-primary);
+                font-size: 1.25rem;
+                font-weight: 900;
+            }
+
+            p {
+                margin-top: 4px;
+                color: var(--color-text-secondary);
+                font-size: 0.85rem;
+                font-weight: 700;
+            }
+        }
+    }
+
+    .nosotros-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        min-width: 0;
+
+        .section-tag {
+            color: var(--color-accent);
+            font-size: 0.85rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            color: var(--color-primary);
+            font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+        }
+
+        .nosotros-description {
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        .nosotros-values {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+
+            > img {
+                flex-shrink: 0;
+                width: 26px;
+                height: 26px;
+                margin-top: 3px;
+            }
+
+            h3 {
+                margin-bottom: 4px;
+                color: var(--color-primary);
+                font-size: 1.1rem;
+                font-weight: 900;
+            }
+
+            p {
+                color: var(--color-text-secondary);
+                line-height: 1.5;
+            }
+        }
+    }
+}
+
 .open-nav,
 .close-nav {
     display: none;
@@ -386,6 +501,24 @@ header {
 
         .hero-actions {
             justify-content: flex-start;
+        }
+    }
+
+    .nosotros {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    border-radius: 30px;
+    
+        .nosotros-image {
+            > img {
+                aspect-ratio: 16 / 9;
+                border-radius: 25px;
+            }
+        
+            .nosotros-badge {
+                right: 12px;
+                bottom: 12px;
+            }
         }
     }
 }
