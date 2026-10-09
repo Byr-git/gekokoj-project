@@ -76,7 +76,6 @@ header {
 
         .logo {
             height: 45px;
-            background-color: var(--color-bg);
             border-radius: 100%;
         }
 
@@ -91,6 +90,7 @@ header {
 
             .brand-slogan {
                 font-size: 0.8rem;
+                font-weight: 600;
             }
         }
     }
@@ -346,9 +346,8 @@ header {
 
             p {
                 margin-top: 4px;
-                color: var(--color-text-secondary);
                 font-size: 0.85rem;
-                font-weight: 700;
+                font-weight: 600;
             }
         }
     }
