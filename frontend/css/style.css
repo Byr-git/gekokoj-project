@@ -123,8 +123,10 @@ header {
     align-items: center;
     justify-content: center;
     padding: 15px 20px;
+    width: 180px;
     border-radius: 50px;
     box-shadow: var(--shadow-md);
+
 }
 
 .button-primary {
@@ -148,30 +150,31 @@ header {
 }
 
 .hero {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    gap: 20px;
+
     width: min(100% - 2rem, 1400px);
     margin: 20px auto;
     padding: 10px;
-    gap: 20px;
+
     background-color: var(--color-bg-secondary);
     box-shadow: var(--shadow-md);
     border-radius: 50px;
 
     .hero-content {
         display: flex;
-        flex: 1;
         flex-direction: column;
-        gap: 30px;
         align-items: flex-start;
         justify-content: center;
+        gap: 30px;
+        min-width: 0;
         padding: 20px;
 
         h1 {
             color: var(--color-text);
-            font-size: clamp(2.5rem, 5vw, 3rem);
+            font-size: clamp(2rem, 3vw, 3rem);
             line-height: 1.05;
             letter-spacing: -1px;
 
@@ -187,17 +190,23 @@ header {
 
         .hero-actions {
             display: flex;
-            gap: 20px;
-        }  
+            flex-wrap: wrap;
+            gap: 12px;
+        }
     }
 
-    img {
-        max-width: 55%;
-        height: auto;
+    > img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-width: 0;
+        max-height: 450px;
+        object-fit: cover;
         box-shadow: var(--shadow-md);
         border-radius: 40px;
     }
 }
+
 
 .product-card {
     display: flex;
@@ -231,7 +240,7 @@ header {
         h3 {
             display: inline-flex;
             align-items: center;
-            font-size: 1.5rem;
+            font-size: clamp(1.125rem, 1.5vw, 1.5rem);
             font-weight: 900;
             gap: 8px;
             color: var(--color-primary);
@@ -269,20 +278,22 @@ header {
         align-items: center;
 
         h2 {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 2.5vw, 2.25rem);
             font-weight: 900;
+            text-align: center;
             color: var(--color-primary);
         }
 
         p {
             color: var(--color-text-secondary);
+            text-align: center;
             font-weight: 700;
         }
     }
 
     .productos-content {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
         gap: clamp(20px, 3vw, 40px);
         width: 100%;
     }
@@ -337,6 +348,44 @@ header {
         &.visible {
             opacity: 1;
             visibility: visible;
+        }
+    }
+
+    .hero {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        isolation: isolate;
+        overflow: hidden;
+        min-height: 400px;
+        padding: 20px;
+        border-radius: 30px;
+
+        background-image:
+            linear-gradient(
+                90deg,
+                var(--color-bg-secondary) 0%,
+                rgba(232, 220, 196, 0.95) 45%,
+                rgba(232, 220, 196, 0.45) 100%
+            ),
+            url("/frontend/assets/images/img-hero1.jpg");
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        > img {
+            display: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 10px;
+        }
+
+        .hero-actions {
+            justify-content: flex-start;
         }
     }
 }
