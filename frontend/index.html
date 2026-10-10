@@ -53,6 +53,7 @@
             </nav>            
         </div>
     </header>
+
     <main>
         <section id="inicio" class="hero">
             <div class="hero-content">
@@ -245,7 +246,72 @@
                 </a>
             </div>
         </section>
+
+        <section id="contacto" class="contacto">
+            <div class="contacto-header">
+                <span class="section-tag">PONTE EN CONTACTO</span>
+                <h2>Estamos aquí para escucharte</h2>
+                <p>¿Tienes alguna consulta o quieres saber más sobre nuestros productos? Escríbenos y estaremos encantados de atenderte.
+                </p>
+            </div>
+
+            <div class="contacto-content">
+                <div class="contacto-info">
+                    <div class="contacto-decoration">
+                        <img class="contacto-logo" src="assets/logo.svg" alt="">
+                        <span>Gekokoj</span>
+                    </div>
+
+                    <h3>Cada consulta cuenta.</h3>
+
+                    <p class="contacto-info-description">Queremos ofrecerte una atención cercana y ayudarte a encontrar las opciones que mejor se adapten a tus necesidades.</p>
+
+                    <div class="contacto-highlight">
+                        <img src="assets/icons/heart.svg" alt="">
+                        <p>Cuidando nace la calidad, y una buena atención también forma parte de ella.</p>
+                    </div>
+
+                    <img src="assets/images/gallinas-echadas.webp" alt="" loading="lazy">
+                </div>
+
+                <form class="contacto-form" id="contacto-form">
+                    <div class="contacto-form-header">
+                        <span class="section-tag">TU MENSAJE</span>
+                        <h3>Cuéntanos qué necesitas</h3>
+                        <p>Completa los campos y déjanos tu consulta.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo</label>
+                        <input id="nombre" name="nombre" type="text" autocomplete="name" required placeholder="¿Cómo te llamas?">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="correo">Correo electrónico</label>
+                        <input id="correo" name="correo" type="email" autocomplete="email" required placeholder="ejemplo@correo.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="asunto">Asunto</label>
+                        <input id="asunto" name="asunto" type="text" required placeholder="¿Sobre qué deseas consultarnos?">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" required rows="5" placeholder="Escribe tu mensaje aquí..."></textarea>
+                    </div>
+
+                    <button class="button button-primary" type="submit">
+                        Enviar mensaje
+                        <img src="assets/icons/send-horizontal.svg" alt="">
+                    </button>
+
+                    <p class="form-notice" id="form-notice" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
     </main>
+
     <script src="js/main.js"></script>
 </body>
 </html>
