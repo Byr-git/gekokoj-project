@@ -482,7 +482,7 @@ header {
                 rgba(232, 220, 196, 0.95) 45%,
                 rgba(232, 220, 196, 0.45) 100%
             ),
-            url("/frontend/assets/images/img-hero1.jpg");
+            url("assets/images/img-hero1.jpg");
 
         background-size: cover;
         background-position: center;
