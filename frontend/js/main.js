@@ -1,7 +1,7 @@
 // Menú hamburguesa
 const nav = document.querySelector("#nav");
-const open_nav = document.querySelector("#open-nav");
-const close_nav = document.querySelector("#close-nav");
+const open_nav = document.querySelector("#nav-open");
+const close_nav = document.querySelector("#nav-close");
 
 open_nav.addEventListener("click", () => {
     nav.classList.add("visible");
