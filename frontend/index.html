@@ -11,43 +11,43 @@
 
 <body>
 	<header class="header">
-		<div class="header__content section-container">
-			<a href="#inicio" class="brand">
-				<img class="brand__logo" src="assets/logo.svg" alt="Gekokoj">
-				<div class="brand__info">
-					<span class="brand__name">Gekokoj</span>
-					<span class="brand__slogan">Cuidando nace la calidad</span>
+		<div class="header__contenido section-container">
+			<a href="#inicio" class="marca">
+				<img class="marca__logo" src="assets/logo.svg" alt="Gekokoj">
+				<div class="marca__info">
+					<span class="marca__nombre">Gekokoj</span>
+					<span class="marca__slogan">Cuidando nace la calidad</span>
 				</div>
 			</a>
 			<button class="nav__open" id="nav-open">
 				<img class="icon-light" src="assets/icons/menu.svg" alt="">
 			</button>
 			<nav class="nav" id="nav">
-				<ul class="nav__list">
+				<ul class="nav__lista">
 					<button class="nav__close" id="nav-close">
 						<img class="icon-light" src="assets/icons/menu.svg" alt="">
 					</button>
 					<li class="nav__item">
 						<a class="nav__link" href="#inicio">
-							<img class="nav__icon icon-light" src="assets/icons/house.svg" alt="">
+							<img class="nav__icono icon-light" src="assets/icons/house.svg" alt="">
 							<span>Inicio</span>
 						</a>
 					</li>
 					<li class="nav__item">
 						<a class="nav__link" href="#productos">
-							<img class="nav__icon icon-light" src="assets/icons/store.svg" alt="">
+							<img class="nav__icono icon-light" src="assets/icons/store.svg" alt="">
 							<span>Productos</span>
 						</a>
 					</li>
 					<li class="nav__item">
 						<a class="nav__link" href="#nosotros">
-							<img class="nav__icon icon-light" src="assets/icons/heart.svg" alt="">
+							<img class="nav__icono icon-light" src="assets/icons/heart.svg" alt="">
 							<span>Nosotros</span>
 						</a>
 					</li>
 					<li class="nav__item">
 						<a class="nav__link" href="#contacto">
-							<img class="nav__icon icon-light" src="assets/icons/message-circle.svg" alt="">
+							<img class="nav__icono icon-light" src="assets/icons/message-circle.svg" alt="">
 							<span>Contacto</span>
 						</a>
 					</li>
@@ -57,15 +57,15 @@
 	</header>
 
 	<main>
-		<section id="inicio" class="hero section-container">
-			<div class="hero__content">
-				<h1 class="hero__title">
-					Criamos aves de corral con todo el <span class="hero__highlight">respeto </span>que se merecen
+		<section id="inicio" class="hero">
+			<div class="hero__contenido">
+				<h1 class="hero__titulo">
+					Criamos aves de corral con todo el <span class="hero__resaltado">respeto </span>que se merecen
 				</h1>
-				<p class="hero__description">
+				<p class="hero__descripcion">
 					Nos dedicamos a la crianza y comercialización de aves y productos avícolas, procurando ofrecer animales saludables y productos seleccionados con responsabilidad.
 				</p>
-				<div class="hero__actions">
+				<div class="hero__acciones">
 					<a class="button button--primary" href="#productos">Ver productos</a>
 					<a class="button button--secondary" href="#nosotros">Conoce Gekokoj</a>
 				</div>
@@ -73,118 +73,102 @@
 		</section>
 
 		<section id="productos" class="productos section-container">
-			<div class="section-header">
-				<h2 class="section-title">NUESTROS PRODUCTOS</h2>
-				<p class="section-description">Conoce las aves y productos que tenemos disponibles para ti</p>
+			<div class="seccion-cabecera">
+				<h2 class="seccion-titulo">NUESTROS PRODUCTOS</h2>
+				<p class="seccion-descripcion">Conoce las aves y productos que tenemos disponibles para ti</p>
 			</div>
 
-			<div class="productos__list">
-				<article class="product-card">
-					<img class="product-card__image" src="assets/images/gallo.jpg" alt="Gallo">
+			<div class="productos__contenedor">
+				<article class="tarjeta">
+					<img class="tarjeta__img" src="assets/images/gallo.jpg" alt="Gallo">
 
-					<div class="product-card__content">
-						<h3 class="product-card__title">
-							<img class="product-card__icon icon-light" src="assets/icons/feather.svg" alt="">Gallos
-						</h3>
-						<span class="product-card__info">Venta por unidad o cantidad</span>
-						<p class="product-card__description">Gallos destinados a reproducción y crianza, seleccionados según disponibilidad.
+					<div class="tarjeta__contenido">
+						<h3 class="tarjeta__titulo tarjeta__titulo--pluma">Gallos</h3>
+						<span class="tarjeta__subtitulo">Venta por unidad o cantidad</span>
+						<p class="tarjeta__descripcion">Gallos destinados a reproducción y crianza, seleccionados según disponibilidad.
 						</p>
 					</div>
 				</article>
 
-				<article class="product-card">
-					<img class="product-card__image" src="assets/images/gallina.jpg" alt="Gallina">
+				<article class="tarjeta">
+					<img class="tarjeta__img" src="assets/images/gallina.jpg" alt="Gallina">
 
-					<div class="product-card__content">
-						<h3 class="product-card__title">
-							<img class="product-card__icon icon-light" src="assets/icons/feather.svg" alt="">Gallinas
-						</h3>
-						<span class="product-card__info">Venta por unidad o cantidad</span>
-						<p class="product-card__description">
+					<div class="tarjeta__contenido">
+						<h3 class="tarjeta__titulo tarjeta__titulo--pluma">Gallinas</h3>
+						<span class="tarjeta__subtitulo">Venta por unidad o cantidad</span>
+						<p class="tarjeta__descripcion">
 							Gallinas para crianza y producción de huevos, disponibles según edad y características.
 						</p>
 					</div>
 				</article>
 
-				<article class="product-card">
-					<img class="product-card__image" src="assets/images/pollito.jpg" alt="Pollito">
+				<article class="tarjeta">
+					<img class="tarjeta__img" src="assets/images/pollito.jpg" alt="Pollito">
 
-					<div class="product-card__content">
-						<h3 class="product-card__title">
-							<img class="product-card__icon icon-light" src="assets/icons/feather.svg" alt="">Pollitos
-						</h3>
-						<span class="product-card__info">Venta por unidad o cantidad</span>
-						<p class="product-card__description">
+					<div class="tarjeta__contenido">
+						<h3 class="tarjeta__titulo tarjeta__titulo--pluma">Pollitos</h3>
+						<span class="tarjeta__subtitulo">Venta por unidad o cantidad</span>
+						<p class="tarjeta__descripcion">
 							Pollitos para quienes desean comenzar o ampliar su crianza de aves.
 						</p>
 					</div>
 				</article>
 
-				<article class="product-card">
-					<img class="product-card__image" src="assets/images/codorniz-macho.jpg" alt="Codorniz macho">
+				<article class="tarjeta">
+					<img class="tarjeta__img" src="assets/images/codorniz-macho.jpg" alt="Codorniz macho">
 
-					<div class="product-card__content">
-						<h3 class="product-card__title">
-							<img class="product-card__icon icon-light" src="assets/icons/feather.svg" alt="">Codorniz
-							(M)
+					<div class="tarjeta__contenido">
+						<h3 class="tarjeta__titulo tarjeta__titulo--pluma">Codorniz (M)
 						</h3>
-						<span class="product-card__info">Venta por unidad o cantidad</span>
-						<p class="product-card__description">
+						<span class="tarjeta__subtitulo">Venta por unidad o cantidad</span>
+						<p class="tarjeta__descripcion">
 							Codorniz destinada a reproducción y crianza, seleccionados según disponibilidad.
 						</p>
 					</div>
 				</article>
 
-				<article class="product-card">
-					<img class="product-card__image" src="assets/images/codorniz-hembra.jpg" alt="Codorniz hembra">
+				<article class="tarjeta">
+					<img class="tarjeta__img" src="assets/images/codorniz-hembra.jpg" alt="Codorniz hembra">
 
-					<div class="product-card__content">
-						<h3 class="product-card__title">
-							<img class="product-card__icon icon-light" src="assets/icons/feather.svg" alt="">Codorniz (H)
-						</h3>
-						<span class="product-card__info">Venta por unidad o cantidad</span>
-						<p class="product-card__description">Codorniz para crianza y producción de huevos, disponibles según edad y características.
+					<div class="tarjeta__contenido">
+						<h3 class="tarjeta__titulo tarjeta__titulo--pluma">Codorniz (H)</h3>
+						<span class="tarjeta__subtitulo">Venta por unidad o cantidad</span>
+						<p class="tarjeta__descripcion">Codorniz para crianza y producción de huevos, disponibles según edad y características.
 						</p>
 					</div>
 				</article>
 
-				<article class="product-card">
-					<img class="product-card__image" src="assets/images/codorniz-pollito.jpg" alt="pollito de codorniz">
+				<article class="tarjeta">
+					<img class="tarjeta__img" src="assets/images/codorniz-pollito.jpg" alt="pollito de codorniz">
 
-					<div class="product-card__content">
-						<h3 class="product-card__title">
-							<img class="product-card__icon icon-light" src="assets/icons/feather.svg" alt="">Pollitos Codorniz
-						</h3>
-						<span class="product-card__info">Venta por unidad o cantidad</span>
-						<p class="product-card__description">
+					<div class="tarjeta__contenido">
+						<h3 class="tarjeta__titulo tarjeta__titulo--pluma">Pollitos Codorniz</h3>
+						<span class="tarjeta__subtitulo">Venta por unidad o cantidad</span>
+						<p class="tarjeta__descripcion">
 							Pollitos para quienes desean comenzar o ampliar su crianza de aves.
 						</p>
 					</div>
 				</article>
 
-				<article class="product-card">
-					<img class="product-card__image" src="assets/images/huevos-pollo.jpg" alt="huevos de gallina">
+				<article class="tarjeta">
+					<img class="tarjeta__img" src="assets/images/huevos-pollo.jpg" alt="huevos de gallina">
 
-					<div class="product-card__content">
-						<h3 class="product-card__title">
-							<img class="product-card__icon icon-light" src="assets/icons/egg.svg" alt="">Huevos Gallina
-						</h3>
-						<span class="product-card__info">Cubeta de 15 unidades</span>
-						<p class="product-card__description">
+					<div class="tarjeta__contenido">
+						<h3 class="tarjeta__titulo tarjeta__titulo--huevo">Huevos Gallina</h3>
+						<span class="tarjeta__subtitulo">Cubeta de 15 unidades</span>
+						<p class="tarjeta__descripcion">
 							Huevos seleccionados para ofrecer frescura y calidad, disponibles según producción.
 						</p>
 					</div>
 				</article>
 
-				<article class="product-card">
-					<img class="product-card__image" src="assets/images/huevos-cordorniz.jpg" alt="huevos de codorniz">
+				<article class="tarjeta">
+					<img class="tarjeta__img" src="assets/images/huevos-cordorniz.jpg" alt="huevos de codorniz">
 
-					<div class="product-card__content">
-						<h3 class="product-card__title">
-							<img class="product-card__icon icon-light" src="assets/icons/egg.svg" alt="">Huevos Codorniz
-						</h3>
-						<span class="product-card__info">Cubeta de 15 unidades</span>
-						<p class="product-card__description">
+					<div class="tarjeta__contenido">
+						<h3 class="tarjeta__titulo tarjeta__titulo--huevo">Huevos Codorniz</h3>
+						<span class="tarjeta__subtitulo">Cubeta de 15 unidades</span>
+						<p class="tarjeta__descripcion">
 							Huevos seleccionados para ofrecer frescura y calidad, disponibles segúnproducción.
 						</p>
 					</div>
@@ -193,50 +177,53 @@
 		</section>
 
 		<section id="nosotros" class="nosotros section-container">
-			<div class="nosotros__image">
-				<img class="nosotros__photo" src="assets/images/granja.jpg"
+			<div class="nosotros__contenedor-img">
+				<img class="nosotros__img" src="assets/images/granja.jpg"
 					alt="Aves de corral en un entorno de crianza" loading="lazy">
-				<div class="nosotros__badge">
-					<span class="nosotros__badge-name">Gekokoj</span>
-					<p class="nosotros__badge-slogan">Cuidando nace la calidad</p>
+
+				<div class="nosotros__etiqueta">
+					<span class="nosotros__nombre">Gekokoj</span>
+					<p class="nosotros__slogan">Cuidando nace la calidad</p>
 				</div>
 			</div>
 
-			<div class="nosotros__content">
-				<span class="section-tag">SOBRE NOSOTROS</span>
+			<div class="nosotros__contenido">
+				<div class="seccion-cabecera">
+					<span class="seccion-tag">SOBRE NOSOTROS</span>
+					<h2 class="seccion-titulo">Detrás de cada ave, hay un compromiso</h2>
+				</div>
 
-				<h2 class="nosotros__title">Detrás de cada ave, hay un compromiso</h2>
+				<div class="nosotros__descripcion">
+					<p>
+						En Gekokoj nos dedicamos a la crianza y comercialización de aves de corral y productos avícolas. Queremos acercar a nuestros clientes opciones para la crianza y la producción, con una atención responsable y cercana.
+					</p>
+					<p>
+						Trabajamos para ofrecer productos acordes con las necesidades de cada cliente, brindando información clara sobre su disponibilidad y características.
+					</p>
+				</div>
 
-				<p class="nosotros__description">
-					En Gekokoj nos dedicamos a la crianza y comercialización de aves de corral y productos avícolas. Queremos acercar a nuestros clientes opciones para la crianza y la producción, con una atención responsable y cercana.
-				</p>
-
-				<p class="nosotros__description">
-					Trabajamos para ofrecer productos acordes con las necesidades de cada cliente, brindando información clara sobre su disponibilidad y características.
-				</p>
-
-				<div class="nosotros__values">
-					<article class="value-item">
-						<img class="value-item__icon icon-light" src="assets/icons/feather.svg" alt="">
-						<div class="value-item__content">
-							<h3 class="value-item__title">Crianza responsable</h3>
-							<p class="value-item__description">Atención a las necesidades de las aves y su crianza.</p>
+				<div class="nosotros__lista">
+					<article class="nosotros__item">
+						<img class="item__icono icon-light" src="assets/icons/feather.svg" alt="">
+						<div class="item__contenido">
+							<h3 class="item__titulo">Crianza responsable</h3>
+							<p class="item__descripcion">Atención a las necesidades de las aves y su crianza.</p>
 						</div>
 					</article>
 
-					<article class="value-item">
-						<img class="value-item__icon icon-light" src="assets/icons/heart.svg" alt="">
-						<div class="value-item__content">
-							<h3 class="value-item__title">Atención cercana</h3>
-							<p class="value-item__description">Escuchamos a nuestros clientes y sus necesidades.</p>
+					<article class="nosotros__item">
+						<img class="item__icono icon-light" src="assets/icons/heart.svg" alt="">
+						<div class="item__contenido">
+							<h3 class="item__titulo">Atención cercana</h3>
+							<p class="item__descripcion">Escuchamos a nuestros clientes y sus necesidades.</p>
 						</div>
 					</article>
 
-					<article class="value-item">
-						<img class="value-item__icon icon-light" src="assets/icons/egg.svg" alt="">
-						<div class="value-item__content">
-							<h3 class="value-item__title">Variedad avícola</h3>
-							<p class="value-item__description">Aves y productos para diferentes propósitos de crianza.
+					<article class="nosotros__item">
+						<img class="item__icono icon-light" src="assets/icons/egg.svg" alt="">
+						<div class="item__contenido">
+							<h3 class="item__titulo">Variedad avícola</h3>
+							<p class="item__descripcion">Aves y productos para diferentes propósitos de crianza.
 							</p>
 						</div>
 					</article>
@@ -249,61 +236,61 @@
 		</section>
 
 		<section id="contacto" class="contacto section-container section-container__inside">
-			<div class="section-header">
-				<span class="section-tag">PONTE EN CONTACTO</span>
-				<h2 class="section-title">Estamos aquí para escucharte</h2>
-				<p class="section-description">¿Tienes alguna consulta o quieres saber más sobre nuestros productos?
+			<div class="seccion-cabecera">
+				<span class="seccion-tag">PONTE EN CONTACTO</span>
+				<h2 class="seccion-titulo">Estamos aquí para escucharte</h2>
+				<p class="seccion-descripcion">¿Tienes alguna consulta o quieres saber más sobre nuestros productos?
 					Escríbenos y estaremos encantados de atenderte.
 				</p>
 			</div>
 
-			<div class="contacto__content">
-				<div class="contacto__info">
-					<div class="contacto__decoration">
+			<div class="contacto__contenido">
+				<div class="contacto__presentacion">
+					<div class="contacto__marca">
 						<img class="contacto__logo" src="assets/logo.svg" alt="">
-						<span class="contacto__brand-name">Gekokoj</span>
+						<span class="contacto__nombre-marca">Gekokoj</span>
 					</div>
 
-					<h3 class="contacto__info-title">Cada consulta cuenta.</h3>
+					<h3 class="contacto__titulo">Cada consulta cuenta.</h3>
 
-					<p class="contacto__info-description">Queremos ofrecerte una atención cercana y ayudarte a encontrar las opciones que mejor se adapten a tus necesidades.</p>
+					<p class="contacto__descripcion">Queremos ofrecerte una atención cercana y ayudarte a encontrar las opciones que mejor se adapten a tus necesidades.</p>
 
-					<div class="contacto__highlight">
-						<img class="contacto__highlight-icon icon-dark" src="assets/icons/heart.svg" alt="">
-						<p class="contacto__highlight-text">Cuidando nace la calidad, y una buena atención también forma parte de ella.</p>
+					<div class="contacto__frase">
+						<img class="contacto__icono-frase icon-dark" src="assets/icons/heart.svg" alt="">
+						<p class="contacto__texto-frase">Cuidando nace la calidad, y una buena atención también forma parte de ella.</p>
 					</div>
 
-					<img class="contacto__image" src="assets/images/gallinas-echadas.webp" alt="" loading="lazy">
+					<img class="contacto__img" src="assets/images/gallinas-echadas.webp" alt="" loading="lazy">
 				</div>
 
-				<form class="contacto__form" id="contacto-form">
-					<div class="contacto__form-header">
-						<span class="section-tag">TU MENSAJE</span>
-						<h3 class="contacto__form-title">Cuéntanos qué necesitas</h3>
-						<p class="contacto__form-description">Completa los campos y déjanos tu consulta.</p>
+				<form class="contacto__formulario" id="contacto-form">
+					<div class="formulario__cabecera">
+						<span class="seccion-tag">TU MENSAJE</span>
+						<h3 class="formulario__titulo">Cuéntanos qué necesitas</h3>
+						<p class="formulario__descripcion">Completa los campos y déjanos tu consulta.</p>
 					</div>
 
-					<div class="form-group">
-						<label class="form-group__label" for="nombre">Nombre completo</label>
-						<input class="form-group__input" id="nombre" name="nombre" type="text" autocomplete="name"
+					<div class="formulario__grupo">
+						<label class="formulario__etiqueta" for="nombre">Nombre completo</label>
+						<input class="formulario__input" id="nombre" name="nombre" type="text" autocomplete="name"
 							required placeholder="¿Cómo te llamas?">
 					</div>
 
-					<div class="form-group">
-						<label class="form-group__label" for="correo">Correo electrónico</label>
-						<input class="form-group__input" id="correo" name="correo" type="email" autocomplete="email"
+					<div class="formulario__grupo">
+						<label class="formulario__etiqueta" for="correo">Correo electrónico</label>
+						<input class="formulario__input" id="correo" name="correo" type="email" autocomplete="email"
 							required placeholder="ejemplo@correo.com">
 					</div>
 
-					<div class="form-group">
-						<label class="form-group__label" for="asunto">Asunto</label>
-						<input class="form-group__input" id="asunto" name="asunto" type="text" required
+					<div class="formulario__grupo">
+						<label class="formulario__etiqueta" for="asunto">Asunto</label>
+						<input class="formulario__input" id="asunto" name="asunto" type="text" required
 							placeholder="¿Sobre qué deseas consultarnos?">
 					</div>
 
-					<div class="form-group">
-						<label class="form-group__label" for="mensaje">Mensaje</label>
-						<textarea class="form-group__textarea" id="mensaje" name="mensaje" required rows="5"
+					<div class="formulario__grupo">
+						<label class="formulario__etiqueta" for="mensaje">Mensaje</label>
+						<textarea class="formulario__textarea" id="mensaje" name="mensaje" required rows="5"
 							placeholder="Escribe tu mensaje aquí..."></textarea>
 					</div>
 
@@ -312,29 +299,30 @@
 						<img class="contacto__submit-icon icon-dark" src="assets/icons/send-horizontal.svg" alt="">
 					</button>
 
-					<p class="form-notice" id="form-notice" role="status" aria-live="polite"></p>
+					<p class="formulario__aviso" id="formulario__aviso" role="status" aria-live="polite"></p>
 				</form>
 			</div>
 		</section>
 	</main>
 
 	<footer class="footer">
-		<div class="footer__main section-container">
-			<div class="footer__brand">
-				<a class="footer__identity" href="#inicio" aria-label="Gekokoj, volver al inicio">
-					<img class="footer__logo" src="assets/logo.svg" alt="">
-					<span class="footer__name">Gekokoj</span>
+		<div class="footer__principal section-container">
+			<div class="footer__introduccion">
+				<a href="#inicio" class="marca">
+					<img class="marca__logo" src="assets/logo.svg" alt="Gekokoj">
+					<div class="marca__info">
+						<span class="marca__nombre">Gekokoj</span>
+						<span class="marca__slogan">Cuidando nace la calidad</span>
+					</div>
 				</a>
 
-				<p class="footer__slogan">Cuidando nace la calidad</p>
-
-				<p class="footer__description">
+				<p class="footer__descripcion">
 					Crianza responsable y productos avícolas para acompañarte en cada etapa.
 				</p>
 			</div>
 
 			<nav class="footer__nav" aria-label="Navegación del pie de página">
-				<h2 class="footer__title">Explora</h2>
+				<h2 class="footer__titulo">Explora</h2>
 
 				<ul class="footer__links">
 					<li><a class="footer__link" href="#inicio">Inicio</a></li>
@@ -344,10 +332,10 @@
 				</ul>
 			</nav>
 
-			<div class="footer__contact">
-				<h2 class="footer__title">¿Hablamos?</h2>
+			<div class="footer__contacto">
+				<h2 class="footer__titulo">¿Hablamos?</h2>
 
-				<p class="footer__description">
+				<p class="footer__descripcion">
 					¿Buscas aves o productos avícolas? Escríbenos y cuéntanos qué necesitas.
 				</p>
 
@@ -358,13 +346,13 @@
 			</div>
 		</div>
 
-		<div class="footer__bottom">
-			<div class="footer__bottom-content section-container">
+		<div class="footer-fondo">
+			<div class="footer-fondo__contenido section-container">
 				<p class="footer__copyright">
 					© 2026 Gekokoj. Todos los derechos reservados.
 				</p>
 
-				<a class="footer__back-to-top" href="#inicio">
+				<a class="footer__regresar-arriba" href="#inicio">
 					Volver arriba ↑
 				</a>
 			</div>
