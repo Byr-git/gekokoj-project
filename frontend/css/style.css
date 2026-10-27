@@ -277,7 +277,7 @@ li {
             rgba(2, 2, 2, 0.9) 5%,
             rgba(68, 68, 68, 0.5)
         ),
-        url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fhummingbird-acres.com%2Fwp-content%2Fuploads%2F2023%2F02%2Fraising-baby-chicks-7-1024x614.jpg&f=1&nofb=1&ipt=0ed61760d2d188c1e09441f7a460f5f3e8417d4e69df859cb69551d38c21f79b&ipo=images");
+        url("../assets/images/img-hero1.jpg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -360,18 +360,17 @@ li {
 	width: 100%;
 	aspect-ratio: 1;
 	object-fit: cover;
-	border-radius: var(--radius-sm);
+	border-radius: var(--radius-sm) var(--radius-sm) 0px 0px;
 	box-shadow: var(--shadow-sm);
 }
 
 .tarjeta__contenido {
-	display: flex;
-	flex-direction: column;
-	height: stretch;
-	width: 100%;
-	align-items: start;
-	border-radius: var(--radius-lg);
-	padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: flex-start;
+    min-width: 0;
+    padding: 20px;
 
 	.tarjeta__titulo {
 		display: inline-flex;
@@ -407,7 +406,78 @@ li {
 	}
 
 	.tarjeta__descripcion {
+		width: 100%;
+		overflow-wrap: break-word;
 		color: var(--color-text-secondary);
+	}
+}
+
+/*
+ Precio y acciones de productos
+*/
+
+.tarjeta__acciones-contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 100%;
+  margin-top: auto;
+  padding: 20px;
+  border-top: 1px solid rgba(230, 228, 223, 0.1);
+
+	.tarjeta__precio {
+	  color: var(--color-highlight);
+	  font-size: 1.2rem;
+	  font-weight: 900;
+	  line-height: 1.2;
+	}
+	
+	.tarjeta__acciones {
+	  display: inline-flex;
+	  align-items: center;
+	  gap: 10px;
+	  padding: 5px;
+	  border: 1px solid rgba(230, 228, 223, 0.1);
+	  border-radius: var(--radius-xl);
+	  background-color: var(--color-bg);
+	  box-shadow: var(--shadow-sm);
+	
+		.tarjeta__boton {
+	  	display: inline-flex;
+	  	align-items: center;
+	  	justify-content: center;
+	  	flex-shrink: 0;
+	  	width: 36px;
+	  	height: 36px;
+	  	border: none;
+	  	border-radius: 50%;
+	  	background-color: var(--color-bg-secondary);
+	  	color: var(--color-primary);
+	  	font: inherit;
+	  	font-size: 1.4rem;
+	  	font-weight: 900;
+	  	line-height: 1;
+	  	cursor: pointer;
+	  	transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+		
+			&:hover {
+			  background-color: var(--color-primary);
+			  color: var(--color-text-light);
+			}
+		
+			&:active {
+			  transform: scale(0.92);
+			}
+		}
+	
+		.tarjeta__cantidad {
+		  min-width: 1rem;
+		  font-weight: 900;
+		  text-align: center;
+		  color: var(--color-text);
+		}
 	}
 }
 
