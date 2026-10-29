@@ -36,26 +36,9 @@ aplicacion.use((error, req, res, next) => {
 	res.status(500).json({ error: 'Error interno del servidor' })
 })
 
-let conexionMongo
-
-async function conectarMongo() {
-	if (!process.env.MONGODB_URI) {
-		throw new Error('Falta configurar MONGODB_URI')
-	}
-
-	if (!conexionMongo) {
-		conexionMongo = mongoose.connect(process.env.MONGODB_URI).catch((error) => {
-			conexionMongo = null
-			throw error
-		})
-	}
-
-	return conexionMongo
-}
-
 async function iniciarServidor() {
 	try {
-		await conectarMongo()
+		await mongoose.connect(process.env.MONGODB_URI)
 		console.log('Conexión con MongoDB establecida')
 	} catch (error) {
 		console.error('Error al conectar con MongoDB:', error.message)
@@ -67,16 +50,4 @@ async function iniciarServidor() {
 	})
 }
 
-if (require.main === module) {
-	iniciarServidor()
-}
-
-module.exports = async function handler(req, res) {
-	try {
-		await conectarMongo()
-		return aplicacion(req, res)
-	} catch (error) {
-		console.error('Error al conectar con MongoDB:', error.message)
-		return res.status(500).json({ error: 'No se pudo conectar con la base de datos' })
-	}
-}
+iniciarServidor()
