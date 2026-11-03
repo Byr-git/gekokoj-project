@@ -764,6 +764,7 @@ li {
 	color: var(--color-text-secondary);
 	font-size: 0.9rem;
 	line-height: 1.5;
+	text-align: center;
 }
 
 /*
@@ -1039,7 +1040,6 @@ li {
 	color: var(--color-text-light);
 	font-size: 0.7rem;
 	font-weight: 900;
-	line-height: 1;
 }
 
 /*

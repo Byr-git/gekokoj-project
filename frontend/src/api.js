@@ -43,6 +43,24 @@ export async function obtenerProductos() {
 	}
 }
 
+export function construirEnlaceWhatsApp(mensaje) {
+	return `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensaje)}`
+}
+
+export function abrirEnlaceWhatsApp(url) {
+	const ventana = window.open(url, '_blank')
+
+	if (ventana) {
+		// Con _blank sin "noopener" hay que limpiar opener manualmente.
+		ventana.opener = null
+		return true
+	}
+
+	// Solo si el navegador bloqueó la pestaña nueva, navega en la misma.
+	window.location.href = url
+	return false
+}
+
 export function generarUrlWhatsApp(lineas, total) {
 	const detalle = lineas.map(({ producto, cantidad, subtotal }) => (
 		`• ${cantidad} x ${producto.nombre} — ${formatearPrecio(subtotal)}`
@@ -58,5 +76,5 @@ export function generarUrlWhatsApp(lineas, total) {
 		'Pedido generado desde el sitio web.'
 	].join('\n')
 
-	return `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensaje)}`
+	return construirEnlaceWhatsApp(mensaje)
 }

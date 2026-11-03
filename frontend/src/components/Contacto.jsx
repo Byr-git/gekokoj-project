@@ -1,11 +1,48 @@
 import { useState } from 'react'
+import { construirEnlaceWhatsApp, abrirEnlaceWhatsApp } from '../api.js'
+
+const CAMPOS_INICIALES = {
+	nombre: '',
+	asunto: '',
+	mensaje: ''
+}
 
 export default function Contacto() {
+	const [campos, setCampos] = useState(CAMPOS_INICIALES)
 	const [aviso, setAviso] = useState('')
+
+	const actualizarCampo = (evento) => {
+		const { name, value } = evento.target
+		setCampos((previos) => ({ ...previos, [name]: value }))
+	}
 
 	const enviar = (evento) => {
 		evento.preventDefault()
-		setAviso('Tu mensaje está listo. Muy pronto podrás enviarlo desde aquí.')
+
+		const { nombre, asunto, mensaje } = campos
+		if (!nombre.trim() || !mensaje.trim()) {
+			setAviso('Completa tu nombre y tu mensaje para poder enviarlo.')
+			return
+		}
+
+		const texto = [
+			'Hola, Gekokoj! Vi la sección de contacto del sitio web.',
+			'',
+			`Nombre: ${nombre.trim()}`,
+			`Asunto: ${asunto.trim() || 'Consulta general'}`,
+			'',
+			mensaje.trim()
+		].join('\n')
+
+		const url = construirEnlaceWhatsApp(texto)
+		const abrio = abrirEnlaceWhatsApp(url)
+
+		if (!abrio) {
+			return
+		}
+
+		setAviso('Abrimos WhatsApp con tu mensaje listo. Solo pulsa enviar.')
+		setCampos(CAMPOS_INICIALES)
 	}
 
 	return (
@@ -15,7 +52,7 @@ export default function Contacto() {
 				<h2 className="seccion-titulo">Estamos aquí para escucharte</h2>
 				<p className="seccion-descripcion">
 					¿Tienes alguna consulta o quieres saber más sobre nuestros productos?
-					Escríbenos y estaremos encantados de atenderte.
+					Escríbenos por WhatsApp y estaremos encantados de atenderte.
 				</p>
 			</div>
 
@@ -46,7 +83,9 @@ export default function Contacto() {
 					<div className="formulario__cabecera">
 						<span className="seccion-tag">TU MENSAJE</span>
 						<h3 className="formulario__titulo">Cuéntanos qué necesitas</h3>
-						<p className="formulario__descripcion">Completa los campos y déjanos tu consulta.</p>
+						<p className="formulario__descripcion">
+							Completa los campos y abrimos WhatsApp con tu mensaje listo para enviar.
+						</p>
 					</div>
 
 					<div className="formulario__grupo">
@@ -57,21 +96,10 @@ export default function Contacto() {
 							name="nombre"
 							type="text"
 							autoComplete="name"
+							value={campos.nombre}
+							onChange={actualizarCampo}
 							required
 							placeholder="¿Cómo te llamas?"
-						/>
-					</div>
-
-					<div className="formulario__grupo">
-						<label className="formulario__etiqueta" htmlFor="correo">Correo electrónico</label>
-						<input
-							className="formulario__input"
-							id="correo"
-							name="correo"
-							type="email"
-							autoComplete="email"
-							required
-							placeholder="ejemplo@correo.com"
 						/>
 					</div>
 
@@ -82,7 +110,8 @@ export default function Contacto() {
 							id="asunto"
 							name="asunto"
 							type="text"
-							required
+							value={campos.asunto}
+							onChange={actualizarCampo}
 							placeholder="¿Sobre qué deseas consultarnos?"
 						/>
 					</div>
@@ -93,6 +122,8 @@ export default function Contacto() {
 							className="formulario__textarea"
 							id="mensaje"
 							name="mensaje"
+							value={campos.mensaje}
+							onChange={actualizarCampo}
 							required
 							rows="5"
 							placeholder="Escribe tu mensaje aquí..."
@@ -100,7 +131,7 @@ export default function Contacto() {
 					</div>
 
 					<button className="button button--primary contacto__submit" type="submit">
-						Enviar mensaje
+						WhatsApp
 						<img className="contacto__submit-icon icon-dark" src="/assets/icons/send-horizontal.svg" alt="" />
 					</button>
 

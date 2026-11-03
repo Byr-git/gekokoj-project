@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { formatearPrecio, generarUrlWhatsApp, pluralizar } from '../api.js'
+import { abrirEnlaceWhatsApp, formatearPrecio, generarUrlWhatsApp, pluralizar } from '../api.js'
 import { useCarrito } from '../CarritoContext.jsx'
 import CarritoItem from './CarritoItem.jsx'
 
@@ -83,10 +83,9 @@ export default function Carrito({ abierto, onCerrar }) {
 		}
 
 		const url = generarUrlWhatsApp(lineas, total)
-		const ventana = window.open(url, '_blank', 'noopener,noreferrer')
+		const abrio = abrirEnlaceWhatsApp(url)
 
-		if (!ventana) {
-			window.location.href = url
+		if (!abrio) {
 			return
 		}
 
