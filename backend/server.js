@@ -5,6 +5,7 @@ const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
 const { router: rutasProductos } = require('./productos')
+const { router: rutasAuth } = require('./autenticacion')
 
 const aplicacion = express()
 const puerto = process.env.PORT || 3000
@@ -14,16 +15,22 @@ const origenesPermitidos = process.env.CORS_ORIGIN
 	? process.env.CORS_ORIGIN.split(',').map((origen) => origen.trim())
 	: true
 
-aplicacion.use(cors({ origin: origenesPermitidos }))
+aplicacion.use(cors({ origin: origenesPermitidos, credentials: true }))
 aplicacion.use(express.json())
 
 // En producción sirve el build de React generado por Vite
 aplicacion.use(express.static(path.join(__dirname, '..', 'frontend', 'dist')))
 
+aplicacion.use('/api/auth', rutasAuth)
 aplicacion.use('/api/productos', rutasProductos)
 
 aplicacion.use('/api', (req, res) => {
 	res.status(404).json({ error: 'Ruta no encontrada' })
+})
+
+// Fallback SPA: el router de React se encarga de las demás rutas (por ejemplo /admin)
+aplicacion.get(/^\/(?!api\/).*/, (req, res) => {
+	res.sendFile(path.join(__dirname, '..', 'frontend', 'dist', 'index.html'))
 })
 
 aplicacion.use((error, req, res, next) => {

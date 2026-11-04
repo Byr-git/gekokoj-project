@@ -52,6 +52,14 @@ export default function Footer() {
 					</a>
 				</div>
 			</div>
+
+			<div className="footer-fondo footer-fondo--admin">
+				<div className="footer-fondo__contenido section-container">
+					<a className="footer__enlace-admin" href="/admin">
+						Acceso de administrador
+					</a>
+				</div>
+			</div>
 		</footer>
 	)
 }

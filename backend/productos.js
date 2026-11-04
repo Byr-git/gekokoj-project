@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const { protegerEscritura } = require('./autenticacion')
 
 const esquemaProducto = new mongoose.Schema({
 	nombre: {
@@ -116,8 +117,8 @@ router.get('/:id', async (req, res) => {
 	res.json(producto)
 })
 
-// POST: crear producto
-router.post('/', async (req, res) => {
+// POST: crear producto (solo administrador)
+router.post('/', protegerEscritura, async (req, res) => {
 	if (!validarProducto(req.body)) {
 		return res.status(400).json({
 			error: 'Debes proporcionar nombre, categoría, stock, unidad de venta y un precio válidos'
@@ -128,8 +129,8 @@ router.post('/', async (req, res) => {
 	res.status(201).json(nuevoProducto)
 })
 
-// PUT: actualizar producto
-router.put('/:id', async (req, res) => {
+// PUT: actualizar producto (solo administrador)
+router.put('/:id', protegerEscritura, async (req, res) => {
 	const { id } = req.params
 
 	if (!validarId(id)) {
@@ -161,8 +162,8 @@ router.put('/:id', async (req, res) => {
 	res.json(producto)
 })
 
-// DELETE: eliminar producto
-router.delete('/:id', async (req, res) => {
+// DELETE: eliminar producto (solo administrador)
+router.delete('/:id', protegerEscritura, async (req, res) => {
 	const { id } = req.params
 
 	if (!validarId(id)) {
