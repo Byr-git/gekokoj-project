@@ -335,11 +335,121 @@ li {
 	gap: 50px;
 }
 
-.productos__contenedor {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-	gap: clamp(20px, 3vw, 40px);
+.productos__contenido {
 	width: 100%;
+	min-width: 0;
+}
+
+/*
+ Carrusel de productos
+*/
+
+.carrusel {
+	position: relative;
+	width: 100%;
+	container-type: inline-size;
+	/* Ancho de tarjeta con unidades de contenedor, para poder alinear los botones al centro de la imagen */
+	--tarjeta-ancho: clamp(280px, 80cqw, 360px);
+}
+
+.carrusel__pista {
+	display: flex;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scrollbar-width: none;
+	gap: clamp(20px, 3vw, 40px);
+	/* Espacio vertical para que las sombras base y de hover de las tarjetas no se recorten
+	   (la sombra de hover llega a extenderse ~37px por debajo del borde de la tarjeta) */
+	padding-block: 40px;
+	margin-block: -40px;
+	/* Espacio lateral para que la sombra de la primera y última tarjeta no se corte */
+	padding-inline: clamp(10px, 2vw, 20px);
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+.carrusel__pista .tarjeta {
+	flex: 0 0 clamp(280px, 80%, 360px);
+	/* Igual que la base pero con unidades de contenedor (respaldo si el navegador no soporta container queries) */
+	flex: 0 0 var(--tarjeta-ancho, clamp(280px, 80%, 360px));
+	scroll-snap-align: center;
+}
+
+.carrusel__controles {
+	display: contents;
+}
+
+.carrusel__boton {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	border: 2px solid var(--color-primary);
+	border-radius: var(--radius-xl);
+	color: var(--color-text);
+	font-size: 1.5rem;
+	font-weight: 900;
+	line-height: 1;
+	text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+	background-color: transparent;
+	backdrop-filter: blur(4px);
+	cursor: pointer;
+	transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+
+	&:hover:not(:disabled) {
+		transform: scale(1.05);
+	}
+
+	&:active:not(:disabled) {
+		border-color: var(--color-primary-dark);
+		color: var(--color-text-light);
+		text-shadow: none;
+		background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+	}
+
+	&:disabled {
+		opacity: 0.35;
+		cursor: default;
+	}
+}
+
+.carrusel__boton--anterior {
+	position: absolute;
+	top: 50%;
+	/* Centro de la imagen: padding superior (40px) + mitad del ancho de la tarjeta (la imagen es cuadrada) */
+	top: calc(40px + var(--tarjeta-ancho, 340px) / 2);
+	left: 8px;
+	transform: translateY(-50%);
+	z-index: 1;
+
+	&:hover:not(:disabled) {
+		transform: translateY(-50%) scale(1.05);
+	}
+}
+
+.carrusel__boton--siguiente {
+	position: absolute;
+	top: 50%;
+	top: calc(40px + var(--tarjeta-ancho, 340px) / 2);
+	right: 8px;
+	transform: translateY(-50%);
+	z-index: 1;
+
+	&:hover:not(:disabled) {
+		transform: translateY(-50%) scale(1.05);
+	}
+}
+
+@media screen and (max-width: 700px) {
+	/* En móvil los botones se superponen a los lados igual que en PC, pero un poco más pequeños */
+	.carrusel__boton {
+		width: 40px;
+		height: 40px;
+		font-size: 1.25rem;
+	}
 }
 
 .tarjeta {
@@ -347,7 +457,6 @@ li {
 	flex-direction: column;
 	width: min(100%, 400px);
 	border-radius: var(--radius-sm);
-	justify-self: center;
 	background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-bg));
 	box-shadow: var(--shadow-md);
 	transition: transform var(--transition-fast), box-shadow var(--transition-fast);
@@ -1054,7 +1163,6 @@ li {
 */
 
 .productos__estado {
-	grid-column: 1 / -1;
 	padding: 40px 20px;
 	color: var(--color-text-secondary);
 	font-weight: 700;

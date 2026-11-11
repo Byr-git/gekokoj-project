@@ -1,4 +1,5 @@
 import { useCarrito } from '../CarritoContext.jsx'
+import Carrusel from './Carrusel.jsx'
 import ProductoCard from './ProductoCard.jsx'
 
 export default function Productos() {
@@ -11,7 +12,7 @@ export default function Productos() {
 				<p className="seccion-descripcion">Conoce las aves y productos que tenemos disponibles para ti</p>
 			</div>
 
-			<div className="productos__contenedor" aria-live="polite" aria-busy={cargando}>
+			<div className="productos__contenido" aria-live="polite" aria-busy={cargando}>
 				{cargando && <p className="productos__estado">Cargando productos…</p>}
 
 				{!cargando && error && (
@@ -27,9 +28,13 @@ export default function Productos() {
 					<p className="productos__estado">Todavía no hay productos disponibles. Vuelve pronto.</p>
 				)}
 
-				{!cargando && !error && productos.map((producto) => (
-					<ProductoCard key={producto._id} producto={producto} />
-				))}
+				{!cargando && !error && productos.length > 0 && (
+					<Carrusel ariaLabel="Productos disponibles">
+						{productos.map((producto) => (
+							<ProductoCard key={producto._id} producto={producto} />
+						))}
+					</Carrusel>
+				)}
 			</div>
 		</section>
 	)
