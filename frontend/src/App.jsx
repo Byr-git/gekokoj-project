@@ -9,6 +9,7 @@ import Contacto from './components/Contacto.jsx'
 import Footer from './components/Footer.jsx'
 import Carrito from './components/Carrito.jsx'
 import Toast from './components/Toast.jsx'
+import AsistenteVirtual from './components/AsistenteVirtual.jsx'
 import AdminLogin from './components/admin/AdminLogin.jsx'
 import RutaProtegida from './components/admin/RutaProtegida.jsx'
 import PanelAdmin from './components/admin/PanelAdmin.jsx'
@@ -34,6 +35,7 @@ function Pagina() {
 				<Footer />
 				<Toast />
 				<Carrito abierto={carritoAbierto} onCerrar={cerrarCarrito} />
+				<AsistenteVirtual />
 			</>
 		</CarritoProvider>
 	)
