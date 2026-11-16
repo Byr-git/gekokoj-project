@@ -29,7 +29,10 @@ export default function Productos() {
 				)}
 
 				{!cargando && !error && productos.length > 0 && (
-					<Carrusel ariaLabel="Productos disponibles">
+					<Carrusel
+						ariaLabel="Productos disponibles"
+						claveContenido={productos.map((producto) => String(producto._id)).join('|')}
+					>
 						{productos.map((producto) => (
 							<ProductoCard key={producto._id} producto={producto} />
 						))}

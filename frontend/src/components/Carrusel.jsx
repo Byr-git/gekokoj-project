@@ -1,6 +1,6 @@
 import { Children, useCallback, useEffect, useRef, useState } from 'react'
 
-export default function Carrusel({ children, ariaLabel = 'Carrusel' }) {
+export default function Carrusel({ children, ariaLabel = 'Carrusel', claveContenido = '' }) {
 	const pistaRef = useRef(null)
 	const [puedeRetroceder, setPuedeRetroceder] = useState(false)
 	const [puedeAvanzar, setPuedeAvanzar] = useState(false)
@@ -39,7 +39,8 @@ export default function Carrusel({ children, ariaLabel = 'Carrusel' }) {
 		}
 	}, [actualizarBotones])
 
-	// Vuelve al inicio cuando cambia el contenido (p. ej. al recargar productos)
+	// Vuelve al inicio solo cuando cambia el contenido (p. ej. al recargar productos),
+	// no en cada re-render del padre
 	useEffect(() => {
 		const pista = pistaRef.current
 
@@ -49,7 +50,7 @@ export default function Carrusel({ children, ariaLabel = 'Carrusel' }) {
 
 		pista.scrollTo({ left: 0 })
 		actualizarBotones()
-	}, [children, actualizarBotones])
+	}, [claveContenido, actualizarBotones])
 
 	const desplazar = (direccion) => {
 		const pista = pistaRef.current
