@@ -1703,7 +1703,7 @@ body.sin-scroll {
 }
 
 .admin__boton {
-	width: auto;
+	width: 180px;
 	height: 48px;
 	padding-inline: 24px;
 	font-size: 0.92rem;
@@ -1712,7 +1712,9 @@ body.sin-scroll {
 .admin__enlace {
 	display: inline-flex;
 	align-items: center;
+	justify-content: center;
 	height: 48px;
+	width: 180px;
 	padding-inline: 24px;
 	color: var(--color-text-secondary);
 	font-weight: 700;
@@ -1723,7 +1725,6 @@ body.sin-scroll {
 }
 
 .admin__enlace:hover {
-	color: var(--color-text-light);
 	border-color: var(--color-highlight);
 	background-color: rgba(212, 163, 64, 0.12);
 }
@@ -1846,14 +1847,15 @@ body.sin-scroll {
 .admin-tabla__accion {
 	display: inline-flex;
 	align-items: center;
+	justify-content: center;
 	height: 34px;
+	width: 70px;
 	border: 1px solid var(--color-primary-dark);
 	background: transparent;
 	color: var(--color-text);
 	font: inherit;
 	font-weight: 700;
 	font-size: 0.85rem;
-	padding-inline: 14px;
 	border-radius: var(--radius-xs);
 	cursor: pointer;
 	transition: background-color var(--transition-fast), color var(--transition-fast);
@@ -2012,18 +2014,19 @@ body.sin-scroll {
 
 .admin-formulario__acciones {
 	display: flex;
+	justify-content: center;
 	gap: 12px;
 	flex-wrap: wrap;
 }
 
 .admin-formulario__boton {
-	width: auto;
+	width: 180px;
 	height: 48px;
 	padding-inline: 24px;
 	font-size: 0.92rem;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 815px) {
 	.admin-formulario__fila {
 		grid-template-columns: 1fr;
 	}
@@ -2091,5 +2094,6 @@ body.sin-scroll {
 
 	.admin-tabla__acciones {
 		flex-wrap: wrap;
+		justify-content: end;
 	}
 }
