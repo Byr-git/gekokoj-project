@@ -131,6 +131,8 @@ li {
 	display: flex;
 	align-items: center;
 	gap: 10px;
+	/* Empuja el nav y las acciones hacia la derecha */
+	margin-right: auto;
 }
 
 .marca__logo {
@@ -230,8 +232,8 @@ li {
 
 .header__contenido {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
+	gap: 20px;
 	padding: 8px 0;
 }
 
@@ -995,8 +997,11 @@ li {
  Menú Móvil & Responsive
 */
 
-.nav__open,
-.nav__close {
+.nav__fondo {
+	display: none;
+}
+
+.nav__open {
 	display: none;
 
 	img {
@@ -1006,14 +1011,17 @@ li {
 
 @media screen and (max-width: 825px) {
 
-	.nav__open,
-	.nav__close {
-		display: block;
+	.nav__open {
+		display: flex;
 		cursor: pointer;
 		border: 0;
+		height: 44px;
+		width: 44px;
+		justify-content: center;
+		align-items: center;
 		background-color: var(--color-bg);
 		padding: 10px 20px;
-		border-radius: var(--radius-xl);
+		border-radius: 50%;
 		box-shadow: var(--shadow-md);
 
 		&:hover {
@@ -1026,15 +1034,24 @@ li {
 	}
 
 	.nav {
-		opacity: 0;
-		visibility: hidden;
 		position: fixed;
 		top: 0;
 		right: 0;
 		bottom: 0;
+		z-index: 2;
+		width: min(280px, 100%);
 		background-color: var(--color-bg-secondary);
 		padding: 2rem;
-		box-shadow: var(--shadow-md-horizontal), 0 0 0 100vmax rgba(0, 0, 0, 0.7);
+		box-shadow: var(--shadow-md-horizontal);
+		opacity: 0;
+		visibility: hidden;
+		transform: translateX(100%);
+		transition: opacity var(--transition-smooth), transform var(--transition-smooth), visibility var(--transition-smooth);
+		outline: none;
+
+		&:focus {
+			outline: none;
+		}
 	}
 
 	.nav__lista {
@@ -1045,6 +1062,25 @@ li {
 	.nav.visible {
 		opacity: 1;
 		visibility: visible;
+		transform: none;
+	}
+
+	.nav__fondo {
+		display: block;
+		position: fixed;
+		inset: 0;
+		z-index: 1;
+		background-color: rgba(0, 0, 0, 0.68);
+		backdrop-filter: blur(2px);
+		-webkit-backdrop-filter: blur(2px);
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity var(--transition-smooth);
+	}
+
+	.nav__fondo--visible {
+		opacity: 1;
+		pointer-events: auto;
 	}
 
 	.hero {
@@ -1589,6 +1625,8 @@ body.sin-scroll {
 @media (prefers-reduced-motion: reduce) {
 	.carrito__panel,
 	.carrito__fondo,
+	.nav,
+	.nav__fondo,
 	.toast {
 		transition: none;
 	}
@@ -1621,22 +1659,6 @@ body.sin-scroll {
 /*
   Panel de Administrador
 */
-
-.footer-fondo--admin {
-	border-top: none;
-}
-
-.footer__enlace-admin {
-	color: var(--color-text-secondary);
-	font-size: 0.8rem;
-	opacity: 0.7;
-	transition: color var(--transition-fast), opacity var(--transition-fast);
-}
-
-.footer__enlace-admin:hover {
-	color: var(--color-primary);
-	opacity: 1;
-}
 
 .admin {
 	display: flex;
