@@ -1710,14 +1710,22 @@ body.sin-scroll {
 }
 
 .admin__enlace {
+	display: inline-flex;
+	align-items: center;
+	height: 48px;
+	padding-inline: 24px;
 	color: var(--color-text-secondary);
 	font-weight: 700;
-	text-decoration: underline;
-	transition: color var(--transition-fast);
+	text-decoration: none;
+	border: 1px solid rgba(230, 228, 223, 0.25);
+	border-radius: var(--radius-xl);
+	transition: color var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
 .admin__enlace:hover {
-	color: var(--color-highlight);
+	color: var(--color-text-light);
+	border-color: var(--color-highlight);
+	background-color: rgba(212, 163, 64, 0.12);
 }
 
 .admin__aviso {
@@ -1794,18 +1802,39 @@ body.sin-scroll {
 	background-color: rgba(142, 176, 87, 0.07);
 }
 
-.admin-tabla tbody tr[data-visible='false'] td:first-child {
+.admin-tabla tbody tr[data-visible='false'] {
 	color: var(--color-text-secondary);
 }
 
 .admin-tabla__estado {
-	font-weight: 800;
-	font-size: 0.85rem;
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	padding: 4px 12px;
+	border-radius: var(--radius-xl);
+	background-color: rgba(174, 172, 167, 0.14);
 	color: var(--color-text-secondary);
+	font-weight: 800;
+	font-size: 0.78rem;
+	letter-spacing: 0.03em;
+}
+
+.admin-tabla__estado::before {
+	content: "";
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: currentColor;
 }
 
 .admin-tabla__estado--activo {
 	color: var(--color-primary);
+	background-color: rgba(142, 176, 87, 0.14);
+}
+
+.admin-tabla__estado--oculto {
+	color: var(--color-highlight);
+	background-color: rgba(212, 163, 64, 0.12);
 }
 
 .admin-tabla__acciones {
@@ -1815,13 +1844,16 @@ body.sin-scroll {
 }
 
 .admin-tabla__accion {
+	display: inline-flex;
+	align-items: center;
+	height: 34px;
 	border: 1px solid var(--color-primary-dark);
 	background: transparent;
 	color: var(--color-text);
 	font: inherit;
 	font-weight: 700;
 	font-size: 0.85rem;
-	padding: 7px 14px;
+	padding-inline: 14px;
 	border-radius: var(--radius-xs);
 	cursor: pointer;
 	transition: background-color var(--transition-fast), color var(--transition-fast);
@@ -1859,6 +1891,15 @@ body.sin-scroll {
 	text-align: center;
 }
 
+.admin-login__logo {
+	width: 74px;
+	height: 74px;
+	margin-inline: auto;
+	padding: 6px;
+	border-radius: 50%;
+	background-color: var(--color-bg-icon);
+}
+
 .admin-login__titulo {
 	color: var(--color-primary);
 	font-size: clamp(1.3rem, 2.5vw, 1.7rem);
@@ -1880,12 +1921,19 @@ body.sin-scroll {
 
 .admin-login__error {
 	color: var(--color-accent);
-	font-weight: 700;
+	background-color: rgba(224, 122, 95, 0.08);
+	border: 1px solid var(--color-accent);
+	border-radius: var(--radius-xs);
+	padding: 10px 14px;
 	font-size: 0.9rem;
+	font-weight: 700;
 }
 
 .admin-login__boton {
 	width: 100%;
+	height: 48px;
+	padding-inline: 24px;
+	font-size: 0.92rem;
 	margin-top: 5px;
 }
 
@@ -1970,9 +2018,9 @@ body.sin-scroll {
 
 .admin-formulario__boton {
 	width: auto;
-	height: 52px;
-	padding-inline: 26px;
-	font-size: 0.95rem;
+	height: 48px;
+	padding-inline: 24px;
+	font-size: 0.92rem;
 }
 
 @media screen and (max-width: 700px) {
@@ -1987,5 +2035,61 @@ body.sin-scroll {
 
 	.admin__conteo {
 		margin-left: 0;
+	}
+
+	/* La tabla se apila como tarjetas usando los data-titulo de cada celda */
+	.admin-tabla {
+		min-width: 0;
+	}
+
+	.admin-tabla thead {
+		display: none;
+	}
+
+	.admin-tabla,
+	.admin-tabla tbody {
+		display: block;
+	}
+
+	.admin-tabla tbody tr {
+		display: grid;
+		gap: 8px;
+		padding: 18px 0;
+		border-bottom: 1px solid rgba(230, 228, 223, 0.12);
+	}
+
+	.admin-tabla tbody tr:last-child {
+		border-bottom: none;
+	}
+
+	.admin-tabla td {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 14px;
+		padding: 0;
+		border-bottom: none;
+	}
+
+	.admin-tabla td::before {
+		content: attr(data-titulo);
+		color: var(--color-text-secondary);
+		font-size: 0.72rem;
+		font-weight: 800;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+	}
+
+	.admin-tabla td[data-titulo='Nombre'] {
+		font-weight: 800;
+		font-size: 1.02rem;
+	}
+
+	.admin-tabla td[data-titulo='Acciones'] {
+		margin-top: 6px;
+	}
+
+	.admin-tabla__acciones {
+		flex-wrap: wrap;
 	}
 }

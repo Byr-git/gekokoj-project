@@ -65,6 +65,7 @@ export default function AdminLogin() {
 	return (
 		<main className="admin admin__inicio">
 			<section className="admin-login" aria-labelledby="titulo-sesion">
+				<img className="admin-login__logo" src="/assets/logo.svg" alt="" />
 				<h1 id="titulo-sesion" className="admin-login__titulo">PANEL DE ADMINISTRADOR</h1>
 				<p className="admin-login__descripcion">Ingresa tus credenciales para gestionar los productos de la tienda.</p>
 

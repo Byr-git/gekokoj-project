@@ -218,7 +218,7 @@ export default function PanelAdmin() {
 									<td data-titulo="Stock">{producto.stock}</td>
 									<td data-titulo="Unidad">{producto.unidadVenta}</td>
 									<td data-titulo="Estado">
-										<span className={producto.activo !== false ? 'admin-tabla__estado admin-tabla__estado--activo' : 'admin-tabla__estado'}>
+										<span className={producto.activo !== false ? 'admin-tabla__estado admin-tabla__estado--activo' : 'admin-tabla__estado admin-tabla__estado--oculto'}>
 											{producto.activo !== false ? 'Visible' : 'Oculto'}
 										</span>
 									</td>
