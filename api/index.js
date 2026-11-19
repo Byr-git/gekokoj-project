@@ -1,4 +1,4 @@
-const backend = require('../backend/server')
+const backend = require('../backend/src/server')
 
 module.exports = function handler(req, res) {
 	// Vercel rewrites /api/<ruta> to this function and carries the original

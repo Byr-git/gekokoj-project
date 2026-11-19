@@ -1,7 +1,8 @@
 require('dotenv').config()
 
 const mongoose = require('mongoose')
-const { Producto } = require('./productos')
+const { Producto } = require('./models/Producto')
+const { conectarMongo } = require('./config/database')
 
 // Datos base del catálogo. El stock y el precio solo se usan al crear
 // un producto nuevo: si ya existe, se conservan los valores de la base de datos.
@@ -82,7 +83,7 @@ const productos = [
 
 async function cargarProductos() {
 	try {
-		await mongoose.connect(process.env.MONGODB_URI)
+		await conectarMongo()
 		console.log('Conexión con MongoDB establecida')
 	} catch (error) {
 		console.error('Error al conectar con MongoDB:', error.message)

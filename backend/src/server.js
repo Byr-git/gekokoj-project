@@ -3,9 +3,9 @@ require('dotenv').config()
 const path = require('path')
 const express = require('express')
 const cors = require('cors')
-const mongoose = require('mongoose')
-const { router: rutasProductos } = require('./productos')
-const { router: rutasAuth } = require('./autenticacion')
+const { router: rutasProductos } = require('./routes/productos')
+const { router: rutasAuth } = require('./routes/autenticacion')
+const { conectarMongo } = require('./config/database')
 
 const aplicacion = express()
 const puerto = process.env.PORT || 3000
@@ -19,7 +19,7 @@ aplicacion.use(cors({ origin: origenesPermitidos, credentials: true }))
 aplicacion.use(express.json())
 
 // En producción sirve el build de React generado por Vite
-aplicacion.use(express.static(path.join(__dirname, '..', 'frontend', 'dist')))
+aplicacion.use(express.static(path.join(__dirname, '..', '..', 'frontend', 'dist')))
 
 aplicacion.use('/api/auth', rutasAuth)
 aplicacion.use('/api/productos', rutasProductos)
@@ -30,7 +30,7 @@ aplicacion.use('/api', (req, res) => {
 
 // Fallback SPA: el router de React se encarga de las demás rutas (por ejemplo /admin)
 aplicacion.get(/^\/(?!api\/).*/, (req, res) => {
-	res.sendFile(path.join(__dirname, '..', 'frontend', 'dist', 'index.html'))
+	res.sendFile(path.join(__dirname, '..', '..', 'frontend', 'dist', 'index.html'))
 })
 
 aplicacion.use((error, req, res, next) => {
@@ -42,23 +42,6 @@ aplicacion.use((error, req, res, next) => {
 
 	res.status(500).json({ error: 'Error interno del servidor' })
 })
-
-let conexionMongo
-
-async function conectarMongo() {
-	if (!process.env.MONGODB_URI) {
-		throw new Error('Falta configurar MONGODB_URI')
-	}
-
-	if (!conexionMongo) {
-		conexionMongo = mongoose.connect(process.env.MONGODB_URI).catch((error) => {
-			conexionMongo = null
-			throw error
-		})
-	}
-
-	return conexionMongo
-}
 
 async function iniciarServidor() {
 	try {
